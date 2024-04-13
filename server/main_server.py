@@ -45,6 +45,8 @@ def disconnect(): # cuando el cliente cierra sesión llega aqui
       print(name,"bye") 
       leave_room(name) # se elimina su bandeja de entrada / room
       del clients[request.sid]
+      data={"usuarios":[ username for username in list(clients.values())]} 
+      send(data, broadcast=True)
 
     
     
